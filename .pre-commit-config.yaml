@@ -1,0 +1,94 @@
+---
+repos:
+  -
+    repo: 'https://github.com/pre-commit/pre-commit-hooks.git'
+    rev: v2.1.0
+    hooks:
+      -
+        id: trailing-whitespace
+        stages:
+          - commit
+          - push
+      -
+        id: check-json
+        stages:
+          - commit
+          - push
+      -
+        id: flake8
+        args: ['--ignore=E501']
+        stages:
+          - commit
+          - push
+        exclude: ^bootstrap.py$
+      -
+        id: check-yaml
+        stages:
+          - commit
+          - push
+      -
+        id: check-json
+        stages:
+          - commit
+          - push
+      -
+        id: check-merge-conflict
+        stages:
+          - commit
+          - push
+      -
+        id: debug-statements
+        stages:
+          - commit
+          - push
+      -
+        id: fix-encoding-pragma
+        stages:
+          - commit
+          - push
+      -
+        id: check-symlinks
+        stages:
+          - commit
+          - push
+      -
+        id: debug-statements
+        stages:
+          - commit
+          - push
+  -
+    repo: 'https://github.com/jumanjihouse/pre-commit-hooks.git'
+    rev: 1.11.0
+    hooks:
+      -
+        id: shellcheck
+        stages:
+          - commit
+          - push
+      -
+        id: shfmt
+        stages:
+          - commit
+          - push
+  -
+    repo: 'https://github.com/adrienverge/yamllint'
+    rev: v1.15.0
+    hooks:
+      -
+        id: yamllint
+        stages:
+          - commit
+          - push
+  -
+    repo: 'https://github.com/jorisroovers/gitlint.git'
+    rev: v0.11.0
+    hooks:
+      -
+        id: gitlint
+        stages:
+          - commit-msg
+  - repo: git://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.11.0
+    hooks:
+      - id: terraform_fmt
+      - id: terraform_docs
